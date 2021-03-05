@@ -8,14 +8,14 @@ $dbpass = "";
 try {
     $pdo = new PDO($dsn, $dbuser, $dbpass);// INTÂNCIANDO A CONEXÃO COM PDO
 
-    $nome = 'Testador 3';
-    $email = 'teste3@hotmail.com';
+    $nome = 'Luiz Lima';
+    $email = 'teste4@hotmail.com';
     $senha = md5("123");
 
- $sql = "INSERT INTO usuarios SET nome = '$nome',  email = ' $email', senha='$senha'";
- $sql = $pdo->query($sql);
+ $sql = "UPDATE usuarios SET  nome = '$nome'  WHERE id = 10";
+ $sql = $pdo->query($sql); // como é um Update não é obrigatório quardar  dado em uma vaviavel ex:$sql.
 
- echo  "Usuario Inserido: ".$pdo->lastInsertId();
+ echo  "Usuario Alterado com Sucesso!: ".$pdo->lastInsertId();
 
 }catch(PDOException $e) { // TRATANDO FALHAS DE CONEXÃO COM PDOException
     echo "FALHOU!".$e->getMessage();

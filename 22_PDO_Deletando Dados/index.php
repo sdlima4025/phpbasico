@@ -8,14 +8,11 @@ $dbpass = "";
 try {
     $pdo = new PDO($dsn, $dbuser, $dbpass);// INTÂNCIANDO A CONEXÃO COM PDO
 
-    $nome = 'Testador 3';
-    $email = 'teste3@hotmail.com';
-    $senha = md5("123");
 
- $sql = "INSERT INTO usuarios SET nome = '$nome',  email = ' $email', senha='$senha'";
- $sql = $pdo->query($sql);
+ $sql = "DELETE FROM usuarios WHERE id = 10";
+ $sql = $pdo->query($sql); 
 
- echo  "Usuario Inserido: ".$pdo->lastInsertId();
+ echo  "Usuario Deletado com Sucesso!: ";
 
 }catch(PDOException $e) { // TRATANDO FALHAS DE CONEXÃO COM PDOException
     echo "FALHOU!".$e->getMessage();
